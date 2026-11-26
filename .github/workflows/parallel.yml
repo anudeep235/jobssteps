@@ -21,6 +21,6 @@ jobs:
      runs-on: ubuntu-latest
      steps:
         - run: echo "Running linter ..."
-        - run: sleep 5
+        - run: sleep 30
         - run: echo "Linting completed"
   
