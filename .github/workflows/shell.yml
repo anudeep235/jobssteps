@@ -1,25 +1,31 @@
-name: working Directory and shell
+name: Working Directory and Shell
+
 on: [push]
+
 jobs:
   directory-demo:
-     name: working directory example
-     runs-on: ubuntu-latest
-     steps:
-       - name: checkout code
-         uses: actions/checkout@v4
-       - name: create project structure
-         run: |
-            mkdir -p frontend backned scripts
-            echo "Frontend code" > frontend/ index.html
-            echo "Backned code" > backend/server.js
-            echo "script content" > scripts/deploy.sh
-       - name: work in frontend directory
-         working-directory: 
-         run: |
-           echo "current Directory: $(pwd)"
-           ls  -la
-       - name: work in backend directory
-         working-directory: 
-         run: |
-           echo "current directory : $(pwd)"
-           ls -la
+    name: Working directory example
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create project structure
+        run: |
+          mkdir -p frontend backend scripts
+          echo "Frontend code" > frontend/index.html
+          echo "Backend code" > backend/server.js
+          echo "Script content" > scripts/deploy.sh
+
+      - name: Work in frontend directory
+        working-directory: ./frontend
+        run: |
+          echo "Current directory: $(pwd)"
+          ls -la
+
+      - name: Work in backend directory
+        working-directory: ./backend
+        run: |
+          echo "Current directory: $(pwd)"
+          ls -la
