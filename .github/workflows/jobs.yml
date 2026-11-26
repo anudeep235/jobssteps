@@ -1,0 +1,30 @@
+name: multi job demonstration
+on:
+ push:
+   branches:
+     - main
+jobs:
+  build:
+     name: Build Application
+     runs-on: ubuntu-latest
+     steps:
+       - name: checkout code
+         uses: actions/checkout@v4
+       - name: Build steps
+         uses: actions/checkout@v4
+       - name: Build steps
+         run: echo "Building The Application..."
+
+  test:
+    name: Run test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test steps
+        run: echo "Running Test"
+
+   deploy:
+     name: Deploy to staging
+     runs-on: ubuntu-latest
+     steps:
+        - name: Deploy step
+          run: echo "Deploying to staging.."
