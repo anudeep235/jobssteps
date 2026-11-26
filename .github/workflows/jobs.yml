@@ -18,7 +18,7 @@ jobs:
 
   test:
     name: Run test
-    needs: build
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - name: Test steps
@@ -26,7 +26,7 @@ jobs:
 
   deploy:
     name: Deploy to staging
-    needs: test
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy step
