@@ -1,18 +1,23 @@
 name: Display Directory
+
 on:
- push:
-   branches:
-     - main
- pull_request:
+  push:
     branches:
       - main
-      workflow-dispatch:
-      jobs:
-         show-directory:
-            runs-on: ubuntu-latest
-            steps:
-              - name: checkout repoistory
-                uses: actions/checkout@v4
-              - name: List-files
-                run: ls -la ${{ github.workspace }}
-          
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  show-directory:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: List files
+        run: ls -la ${{ github.workspace }}
