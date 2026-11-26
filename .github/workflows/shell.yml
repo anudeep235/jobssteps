@@ -23,6 +23,7 @@ jobs:
         run: |
           echo "Current directory: $(pwd)"
           ls -la
+          echo "cat index.html"
 
       - name: Work in backend directory
         working-directory: ./backend
